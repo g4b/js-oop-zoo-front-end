@@ -20,6 +20,31 @@ function run() {
     Animal.getPopulation();
 }
 
+function createAnimal(){
+    var name = document.getElementById("name").value;
+    var types = document.getElementById("types");
+    var animal;
+    switch(types.value) {
+        case 1:
+            animal = new Tiger(name);
+            break;
+        case 2:
+            animal = new Bear(name);
+            break;
+        case 3:
+            animal = new Unicorn(name);
+            break;
+        case 4:
+            animal = new Giraffe(name);
+            break;
+        case 5:
+            animal = new Bee(name);
+            break;
+        default:
+            alert("That didn't work. Please try again.");
+    }
+}
+
 class Animal {
 
     constructor(name, favoriteFood) {
