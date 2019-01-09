@@ -1,48 +1,48 @@
 var animalPopulation = 0;
+var allAnimals = [];
 
-function run() {
+$(document).ready(function(){
     var tigger = new Tiger("Tigger");
-    tigger.eat("meat");
     var pooh = new Bear("Pooh");
-    pooh.eat("fish");
-    pooh.eat("meat");
     var rarity = new Unicorn("Rarity");
-    rarity.eat("marshmallows");
-    rarity.sleep();
     var gemma = new Giraffe("Gemma");
-    gemma.eat("meat");
-    gemma.eat("leaves");
     var stinger = new Bee("Stinger");
-    stinger.eat("ice cream");
-    stinger.eat("pollen");
     var zoebot = new Zookeeper("Zoebot");
-    zoebot.feedAnimals([tigger, pooh, rarity, gemma, stinger], "chocolate");
-    Animal.getPopulation();
-}
+    listAnimals();
+});
 
 function createAnimal(){
-    var name = document.getElementById("name").value;
-    var types = document.getElementById("types");
+    var name = $("#name").value;
+    var type = $("#type").value;
     var animal;
-    switch(types.value) {
-        case 1:
+    switch(type) {
+        case "Tiger":
             animal = new Tiger(name);
             break;
-        case 2:
+        case "Bear":
             animal = new Bear(name);
             break;
-        case 3:
+        case "Unicorn":
             animal = new Unicorn(name);
             break;
-        case 4:
+        case "Giraffe":
             animal = new Giraffe(name);
             break;
-        case 5:
+        case "Bee":
             animal = new Bee(name);
             break;
         default:
             alert("That didn't work. Please try again.");
     }
+    listAnimals();
+}
+
+function listAnimals(){
+    var list = "";
+    for (var i = 0; i < animalPopulation; i++){
+        list += (allAnimals[i].name + ", a " + allAnimals[i].constructor.name + "<br>");
+    }
+    $("#list").innerHTML = list;
 }
 
 class Animal {
@@ -51,6 +51,7 @@ class Animal {
         this.name = name;
         this.favoriteFood = favoriteFood;
         animalPopulation++;
+        allAnimals.push(this);
     }
 
     sleep() {
@@ -73,7 +74,6 @@ class Tiger extends Animal {
 
     constructor(name) {
         super(name, "meat");
-
     }
 
 }
