@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Objects in a Zoo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <h1>ZOOOOooooOOOOOooooooOOOOOooo</h1>
@@ -22,5 +22,29 @@
         <p>Right now, we have:</p><br>
         <p id="list"></p>
     </div>
+    <div id="menuContainer">
+        <p>It's feeding time! Here is the menu for the animals:</p>
+        <ol>
+            <li value="cho">Chocolate</li>
+            <li value="mea">Meat</li>
+            <li value="mei">Chow Mein</li>
+            <li value="bol">Pasta Bolognese</li>
+            <li value="emp">Empanadas</li>
+            <li value="mar">Marshmallows</li>
+            <li value="lea">Leaves</li>
+        </ol>
+        <p>What would you like to feed them?</p>
+        <select title="mealSelector" id="meals">
+            <option value="1">Chocolate</option>
+            <option value="2">Meat</option>
+            <option value="3">Chow Mein</option>
+            <option value="4">Pasta Bolognese</option>
+            <option value="5">Empanadas</option>
+            <option value="6">Marshmallows</option>
+            <option value="7">Leaves</option>
+        </select>
+        <button onclick="feedAnimals()">Feed</button>
+    </div>
+    <div id="feed"></div>
 </body>
 </html>

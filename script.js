@@ -12,23 +12,23 @@ $(document).ready(function(){
 });
 
 function createAnimal(){
-    var name = $("#name").value;
-    var type = $("#type").value;
+    var name = $("#name").val();
+    var type = Number($("#types").val());
     var animal;
     switch(type) {
-        case "Tiger":
+        case 1:
             animal = new Tiger(name);
             break;
-        case "Bear":
+        case 2:
             animal = new Bear(name);
             break;
-        case "Unicorn":
+        case 3:
             animal = new Unicorn(name);
             break;
-        case "Giraffe":
+        case 4:
             animal = new Giraffe(name);
             break;
-        case "Bee":
+        case 5:
             animal = new Bee(name);
             break;
         default:
@@ -42,7 +42,23 @@ function listAnimals(){
     for (var i = 0; i < animalPopulation; i++){
         list += (allAnimals[i].name + ", a " + allAnimals[i].constructor.name + "<br>");
     }
-    $("#list").innerHTML = list;
+    $("#list").html(list);
+}
+
+function feedAnimals(){
+    var food = Number($("#meals").val());
+    switch(food) {
+        case 1:
+            food = "chocolate";
+            break;
+        case 2:
+            food = "meat";
+            break;
+        case 3:
+            food = "chow mein";
+            break;
+        case
+    }
 }
 
 class Animal {
