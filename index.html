@@ -5,21 +5,27 @@
     <title>Objects in a Zoo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>ZOOOOooooOOOOOooooooOOOOOooo</h1>
-    <p>Create an animal:</p>
-    <select title="typeSelector" id="types">
-        <option value="1">Tiger</option>
-        <option value="2">Bear</option>
-        <option value="3">Unicorn</option>
-        <option value="4">Giraffe</option>
-        <option value="5">Bee</option>
-    </select>
-    <input type="text" id="name" placeholder="Animal name">
-    <button onclick="createAnimal()">Create!</button>
+    <div>
+        <p>Create an animal:</p>
+        <select title="typeSelector" id="types">
+            <option value="1">Tiger</option>
+            <option value="2">Bear</option>
+            <option value="3">Unicorn</option>
+            <option value="4">Giraffe</option>
+            <option value="5">Bee</option>
+        </select>
+        <input type="text" id="name" placeholder="Animal name">
+        <button onclick="createAnimal()">Create!</button>
+        <p>You can also delete animals from the list. To do this, enter the name of the animal here:</p>
+        <input type="text" id="idDelete">
+        <button onclick="deleteAnimal()">Delete</button>
+    </div>
     <div id="listContainer">
-        <p>Right now, we have:</p><br>
+        <p>Animals:</p>
         <p id="list"></p>
     </div>
     <div id="menuContainer">

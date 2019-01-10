@@ -1,7 +1,7 @@
 var animalPopulation = 0;
 var allAnimals = [];
 
-$(document).ready(function(){
+$(document).ready(function run(){
     var tigger = new Tiger("Tigger");
     var pooh = new Bear("Pooh");
     var rarity = new Unicorn("Rarity");
@@ -57,8 +57,32 @@ function feedAnimals(){
         case 3:
             food = "chow mein";
             break;
-        case
+        case 4:
+            food = "pasta bolognese";
+            break;
+        case 5:
+            food = "empanadas";
+            break;
+        case 6:
+            food = "marshmallows";
+            break;
+        case 7:
+            food = "leaves";
+            break;
     }
+    for (var i = 0; i < allAnimals.length; i++){
+        allAnimals[i].eat(food);
+        $("#feed").append("<br>");
+    }
+}
+
+function deleteAnimal(name){
+    for (var i = 0; i < allAnimals.length; i++){
+        if (allAnimals[i].name === name){
+            allAnimals.splice(i, 1);
+        }
+    }
+    listAnimals();
 }
 
 class Animal {
@@ -71,13 +95,13 @@ class Animal {
     }
 
     sleep() {
-        console.log(this.name + " sleeps for 8 hours");
+        $("#feed").append(this.name + " sleeps for 8 hours" + "<br>");
 
     }
 
     eat(food) {
-        console.log(this.name + " eats " + food);
-        food === this.favoriteFood ? console.log("YUM!! " + this.name + " wants more " + food) : this.sleep(this.name);
+        $("#feed").append(this.name + " eats " + food + "<br>");
+        food === this.favoriteFood ? $("#feed").append("YUM!! " + this.name + " wants more " + food + "<br>") : this.sleep(this.name);
     }
 
     static getPopulation() {
@@ -101,7 +125,7 @@ class Bear extends Animal {
     }
 
     sleep() {
-        console.log(this.name + " hibernates for 4 months");
+        $("#feed").append(this.name + " hibernates for 4 months" + "<br>");
     }
 
 }
@@ -113,7 +137,7 @@ class Unicorn extends Animal {
     }
 
     sleep() {
-        console.log(this.name + " sleeps in a cloud");
+        $("#feed").append(this.name + " sleeps in a cloud" + "<br>");
     }
 }
 
@@ -124,7 +148,7 @@ class Giraffe extends Animal {
     }
 
     eat(food) {
-        food === "leaves" ? (super.eat(food),  this.sleep(this.name)) : console.log("YUCK!! " + this.name + " will not eat " + food);
+        food === "leaves" ? (super.eat(food),  this.sleep(this.name)) : $("#feed").append("YUCK!! " + this.name + " will not eat " + food + "<br>");
     }
 }
 
@@ -135,11 +159,11 @@ class Bee extends Animal {
     }
 
     sleep() {
-        console.log(this.name + " never sleeps");
+        $("#feed").append(this.name + " never sleeps");
     }
 
     eat(food) {
-        food === "pollen" ? (super.eat(food), this.sleep(this.name)) : console.log("YUCK!! " + this.name + " will not eat " + food);
+        food === "pollen" ? (super.eat(food), this.sleep(this.name)) : $("#feed").append("YUCK!! " + this.name + " will not eat " + food + "<br>");
     }
 }
 
@@ -150,8 +174,7 @@ class Zookeeper {
     }
 
     feedAnimals(animals, food) {
-        console.log(animalPopulation);
-        console.log(this.name + " is feeding " + food + " to " + animals.length + " of " + animalPopulation + " total animals");
+        $("#feed").append(this.name + " is feeding " + food + " to " + animals.length + " of " + animalPopulation + " total animals");
         for (var i = 0; i < animals.length; i++) {
             animals[i].eat(food);
         }
