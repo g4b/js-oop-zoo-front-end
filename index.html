@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
     <h1>ZOOOOooooOOOOOooooooOOOOOooo</h1>
@@ -21,14 +22,14 @@
         <input type="text" id="name" placeholder="Animal name">
         <button onclick="createAnimal()">Create!</button>
         <p>You can also delete animals from the list. To do this, enter the name of the animal here:</p>
-        <input type="text" id="idDelete">
+        <input type="text" id="idDelete" placeholder="Name">
         <button onclick="deleteAnimal()">Delete</button>
     </div>
-    <div id="listContainer">
+    <div class="container" id="listContainer">
         <p>Animals:</p>
         <p id="list"></p>
     </div>
-    <div id="menuContainer">
+    <div class="container" id="menuContainer">
         <p>It's feeding time! Here is the menu for the animals:</p>
         <ol>
             <li value="cho">Chocolate</li>

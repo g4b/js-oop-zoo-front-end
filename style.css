@@ -1,11 +1,13 @@
 * {
     text-align: center;
+    font-family: "Hiragino Kaku Gothic Pro";
+}
+
+body {
+    background-image: url("007-.jpg");
 }
 
 div {
     margin: auto;
-}
-
-h1 {
-    font-family: "Hiragino Kaku Gothic Pro";
+    background-color: white;
 }

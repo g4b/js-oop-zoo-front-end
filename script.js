@@ -76,12 +76,14 @@ function feedAnimals(){
     }
 }
 
-function deleteAnimal(name){
+function deleteAnimal(){
+    var name = $("#idDelete").html();
     for (var i = 0; i < allAnimals.length; i++){
         if (allAnimals[i].name === name){
             allAnimals.splice(i, 1);
         }
     }
+    console.log(allAnimals);
     listAnimals();
 }
 
