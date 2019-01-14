@@ -1,7 +1,7 @@
 var animalPopulation = 0;
 var allAnimals = [];
 
-$(document).ready(function run(){
+$(document).ready(function(){
     var tigger = new Tiger("Tigger");
     var pooh = new Bear("Pooh");
     var rarity = new Unicorn("Rarity");
@@ -31,6 +31,9 @@ function createAnimal(){
         case 5:
             animal = new Bee(name);
             break;
+        case 6:
+            animal = new Sophie(name);
+            break;
         default:
             alert("That didn't work. Please try again.");
     }
@@ -39,8 +42,8 @@ function createAnimal(){
 
 function listAnimals(){
     var list = "";
-    for (var i = 0; i < animalPopulation; i++){
-        list += (allAnimals[i].name + ", a " + allAnimals[i].constructor.name + "<br>");
+    for (var i = 0; i < allAnimals.length; i++){
+        list += (allAnimals[i].firstName + ", a " + allAnimals[i].constructor.name + "<br>");
     }
     $("#list").html(list);
 }
@@ -77,33 +80,34 @@ function feedAnimals(){
 }
 
 function deleteAnimal(){
-    var name = $("#idDelete").html();
+    var name = $("#idDelete").val();
     for (var i = 0; i < allAnimals.length; i++){
-        if (allAnimals[i].name === name){
+        if (name === allAnimals[i].firstName){
             allAnimals.splice(i, 1);
         }
     }
     console.log(allAnimals);
     listAnimals();
+    $("#idDelete").val("");
 }
 
 class Animal {
 
     constructor(name, favoriteFood) {
-        this.name = name;
+        this.firstName = name;
         this.favoriteFood = favoriteFood;
         animalPopulation++;
         allAnimals.push(this);
     }
 
     sleep() {
-        $("#feed").append(this.name + " sleeps for 8 hours" + "<br>");
+        $("#feed").append(this.firstName + " sleeps for 8 hours" + "<br>");
 
     }
 
     eat(food) {
-        $("#feed").append(this.name + " eats " + food + "<br>");
-        food === this.favoriteFood ? $("#feed").append("YUM!! " + this.name + " wants more " + food + "<br>") : this.sleep(this.name);
+        $("#feed").append(this.firstName + " eats " + food + "<br>");
+        food === this.favoriteFood ? $("#feed").append("YUM!! " + this.firstName + " wants more " + food + "<br>") : this.sleep(this.firstName);
     }
 
     static getPopulation() {
@@ -127,7 +131,7 @@ class Bear extends Animal {
     }
 
     sleep() {
-        $("#feed").append(this.name + " hibernates for 4 months" + "<br>");
+        $("#feed").append(this.firstName + " hibernates for 4 months" + "<br>");
     }
 
 }
@@ -139,7 +143,7 @@ class Unicorn extends Animal {
     }
 
     sleep() {
-        $("#feed").append(this.name + " sleeps in a cloud" + "<br>");
+        $("#feed").append(this.firstName + " sleeps in a cloud" + "<br>");
     }
 }
 
@@ -150,7 +154,7 @@ class Giraffe extends Animal {
     }
 
     eat(food) {
-        food === "leaves" ? (super.eat(food),  this.sleep(this.name)) : $("#feed").append("YUCK!! " + this.name + " will not eat " + food + "<br>");
+        food === "leaves" ? (super.eat(food),  this.sleep(this.firstName)) : $("#feed").append("YUCK!! " + this.firstName + " will not eat " + food + "<br>");
     }
 }
 
@@ -161,22 +165,28 @@ class Bee extends Animal {
     }
 
     sleep() {
-        $("#feed").append(this.name + " never sleeps");
+        $("#feed").append(this.firstName + " never sleeps");
     }
 
     eat(food) {
-        food === "pollen" ? (super.eat(food), this.sleep(this.name)) : $("#feed").append("YUCK!! " + this.name + " will not eat " + food + "<br>");
+        food === "pollen" ? (super.eat(food), this.sleep(this.firstName)) : $("#feed").append("YUCK!! " + this.firstName + " will not eat " + food + "<br>");
+    }
+}
+
+class Sophie extends Animal {
+    constructor(name){
+        super(name, "jelly babies");
     }
 }
 
 class Zookeeper {
 
     constructor(name) {
-        this.name = name;
+        this.firstName = name;
     }
 
     feedAnimals(animals, food) {
-        $("#feed").append(this.name + " is feeding " + food + " to " + animals.length + " of " + animalPopulation + " total animals");
+        $("#feed").append(this.firstName + " is feeding " + food + " to " + animals.length + " of " + animalPopulation + " total animals");
         for (var i = 0; i < animals.length; i++) {
             animals[i].eat(food);
         }
