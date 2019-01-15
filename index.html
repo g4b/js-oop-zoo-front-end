@@ -10,7 +10,9 @@
 </head>
 <body>
     <h1>ZOOOOooooOOOOOooooooOOOOOooo</h1>
-    <div>
+    <div class="container" id="pageContainer">
+    <div class="insidePage">
+        <button onclick="listAnimals()">List All Animals</button>
         <p>Create an animal:</p>
         <select title="typeSelector" id="types">
             <option value="1">Tiger</option>
@@ -26,11 +28,11 @@
         <input type="text" id="idDelete" placeholder="Name">
         <button onclick="deleteAnimal()">Delete</button>
     </div>
-    <div class="container" id="listContainer">
+    <div class="insidePage" id="listContainer">
         <p>Animals:</p>
         <p id="list"></p>
     </div>
-    <div class="container" id="menuContainer">
+    <div class="insidePage" id="menuContainer">
         <p>It's feeding time! Here is the menu for the animals:</p>
         <ol>
             <li value="cho">Chocolate</li>
@@ -53,6 +55,6 @@
         </select>
         <button onclick="feedAnimals()">Feed</button>
     </div>
-    <div id="feed"></div>
+    <div class="insidePage" id="feed"></div></div>
 </body>
 </html>

@@ -1,5 +1,4 @@
 * {
-    text-align: center;
     font-family: "Hiragino Kaku Gothic Pro";
 }
 
@@ -8,6 +7,15 @@ body {
 }
 
 div {
+    background-color: white;
+    border: 2px solid black;
+}
+
+h1, div {
+    text-align: center;
     margin: auto;
+}
+
+.insidePage {
     background-color: white;
 }

@@ -43,8 +43,9 @@ function createAnimal(){
 function listAnimals(){
     var list = "";
     for (var i = 0; i < allAnimals.length; i++){
-        list += (allAnimals[i].firstName + ", a " + allAnimals[i].constructor.name + "<br>");
+        list += (allAnimals[i].firstName + ", a " + allAnimals[i].constructor.name + " whose favorite food is " + allAnimals[i].favoriteFood + "<br>");
     }
+    console.log(list);
     $("#list").html(list);
 }
 
@@ -86,7 +87,6 @@ function deleteAnimal(){
             allAnimals.splice(i, 1);
         }
     }
-    console.log(allAnimals);
     listAnimals();
     $("#idDelete").val("");
 }
@@ -101,7 +101,7 @@ class Animal {
     }
 
     sleep() {
-        $("#feed").append(this.firstName + " sleeps for 8 hours" + "<br>");
+        $("#feed").append(this.firstName + " sleeps for 8 hours");
 
     }
 
@@ -131,7 +131,7 @@ class Bear extends Animal {
     }
 
     sleep() {
-        $("#feed").append(this.firstName + " hibernates for 4 months" + "<br>");
+        $("#feed").append(this.firstName + " hibernates for 4 months");
     }
 
 }
@@ -143,7 +143,7 @@ class Unicorn extends Animal {
     }
 
     sleep() {
-        $("#feed").append(this.firstName + " sleeps in a cloud" + "<br>");
+        $("#feed").append(this.firstName + " sleeps in a cloud");
     }
 }
 
@@ -154,7 +154,7 @@ class Giraffe extends Animal {
     }
 
     eat(food) {
-        food === "leaves" ? (super.eat(food),  this.sleep(this.firstName)) : $("#feed").append("YUCK!! " + this.firstName + " will not eat " + food + "<br>");
+        food === "leaves" ? (super.eat(food),  this.sleep(this.firstName)) : $("#feed").append("YUCK!! " + this.firstName + " will not eat " + food);
     }
 }
 
