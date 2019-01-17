@@ -1,14 +1,13 @@
-* {
-    font-family: "Hiragino Kaku Gothic Pro";
-}
-
 body {
     background-image: url("007-.jpg");
 }
 
 div {
-    background-color: white;
-    border: 2px solid black;
+    font-family: "Devanagari Sangam MN";
+}
+
+h1 {
+    font-family: "Edwardian Script ITC" !important;
 }
 
 h1, div {
@@ -18,4 +17,15 @@ h1, div {
 
 .insidePage {
     background-color: white;
+    border: 2px solid goldenrod;
+    padding: 5px;
+    width: 400px;
+}
+
+span {
+    margin-left: -14px;
+}
+
+ul {
+    list-style-position: inside;
 }

@@ -91,6 +91,17 @@ function deleteAnimal(){
     $("#idDelete").val("");
 }
 
+function rename(){
+    var oldName = $("#oldName").val();
+    var newName = $("#newName").val();
+    for (var i = 0; i < allAnimals.length; i++){
+        if (allAnimals[i].firstName === oldName) {
+            allAnimals[i].firstName = newName;
+        }
+    }
+    listAnimals();
+}
+
 class Animal {
 
     constructor(name, favoriteFood) {
@@ -169,10 +180,11 @@ class Bee extends Animal {
     }
 
     eat(food) {
-        food === "pollen" ? (super.eat(food), this.sleep(this.firstName)) : $("#feed").append("YUCK!! " + this.firstName + " will not eat " + food + "<br>");
+        food === "pollen" ? (super.eat(food), this.sleep(this.firstName)) : $("#feed").append("YUCK!! " + this.firstName + " will not eat " + food);
     }
 }
 
+// this class was created with Sophie's permission
 class Sophie extends Animal {
     constructor(name){
         super(name, "jelly babies");
