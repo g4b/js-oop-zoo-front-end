@@ -95,7 +95,7 @@ function rename(){
     var oldName = $("#oldName").val();
     var newName = $("#newName").val();
     for (var i = 0; i < allAnimals.length; i++){
-        if (allAnimals[i].firstName === oldName) {
+        if (oldName = allAnimals[i].firstName) {
             allAnimals[i].firstName = newName;
         }
     }
